@@ -9,6 +9,17 @@ This sample project focuses on building a user interface application to manage a
 Insert gif or link to demo
 
 https://address-updater.onrender.com
+
+## Technologies Used
+
+- HTML
+- CSS (Bootstrap for styling)
+- JavaScript
+- Express.js
+- MongoDB (Cloud DB -Atals)
+- Node.js
+
+
 ## Features
 
 - Live Project
