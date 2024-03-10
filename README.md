@@ -15,6 +15,7 @@ https://address-updater.onrender.com
 - HTML
 - CSS (Bootstrap for styling)
 - JavaScript
+- EJS
 - Express.js
 - MongoDB (Cloud DB -Atals)
 - Node.js
