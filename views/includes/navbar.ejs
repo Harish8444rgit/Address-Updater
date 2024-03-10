@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <img src="https://cdn-icons-png.flaticon.com/512/5278/5278658.png" width="70px" alt="LenDen" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <% if(currUser){ %>
+          <a class="nav-link fs-5" href="/users/<%= currUser.id %>/addresses"><b>Home</b></a>
+          <% } %>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(currUser){%>
+          <a class="nav-link fs-5" href="/users/<%= currUser.id %>/addresses/new"><b>Add Address</b> &nbsp; &nbsp;</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <b>
+                <%= currUser.username %>
+              </b>
+            </a>
+            <ul class="dropdown-menu">
+              <a class="nav-link" href="/logout"><b>Logout</b></a>
+            </ul>
+          </li>
+          <% } %>
+            <% if(!currUser){%>
+              <a class="nav-link fs-5" href="/signup"> <b>Signup</b></a>
+              <a class="nav-link fs-5" href="/login"><b>Login</b></a>
+              <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

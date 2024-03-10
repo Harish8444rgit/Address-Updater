@@ -1,0 +1,61 @@
+<% -layout("/layouts/boilerplates.ejs")%>
+
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br />
+      <h3>Add New Address</h3>
+
+
+      <form id="addressForm" action="/users/<%= currUser.id %>/addresses/new" method="post" novalidate class="needs-validation">
+
+
+        <div class="mb-3">
+          <label for="street" claas="form-lable">Street <sup>*</sup>:</label>
+          <input type="text" name="address[street]" placeholder="enter street name" class="form-control" required />
+          <div class="invalid-feedback">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="city" claas="form-lable">City <sup>*</sup>:</label>
+
+          <input type="text" name="address[city]" placeholder="enter city name" class="form-control" required />
+          <div class="invalid-feedback">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="zipCode" claas="form-lable">ZipCode <sup>*</sup>:</label>
+
+          <input type="text" name="address[zipCode]" placeholder="enter zipCode name" class="form-control" required />
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="state" claas="form-lable">State <sup>*</sup>:</label>
+
+          <input type="text" name="address[state]" placeholder="enter state name" class="form-control" required />
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country" claas="form-lable">Country</label>
+          <input type="text" name="address[country]" placeholder="enter country" class="form-control" required />
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+        <br />
+
+        <div class="mb-3">
+          <button class="btn btn-dark add-btn">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,61 @@
+<% -layout("/layouts/boilerplates.ejs")%>
+
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br />
+
+      <h3>Edit Address</h3>
+      <form action="/users/<%= currUser.id%>/addresses/<%= address._id %>/edit?_method=PUT" id="addressForm" novalidate class="needs-validation" method="post">
+        <div class="mb-3">
+          <label for="street" claas="form-lable">Street <sup>*</sup>:</label>
+
+          <input type="text" name="address[street]" value="<%= address.street%>" class="form-control" required />
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="city" claas="form-lable">City <sup>*</sup>:</label>
+
+          <input type="text" name="address[city]" value="<%= address.city%>" class="form-control" required />
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="zipCode" claas="form-lable">ZipCode <sup>*</sup>:</label>
+
+          <input type="text" name="address[zipCode]" value="<%= address.zipCode%>" class="form-control" required />
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="state" claas="form-lable">State <sup>*</sup>:</label>
+
+          <input type="text" name="address[state]" value="<%= address.state%>" class="form-control" required />
+          <div class="invalid-feedback">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country" claas="form-lable">Country<sup>*</sup>:</label>
+          <input type="text" name="address[country]" value="<%= address.country%>" class="form-control" required />
+          <div class="invalid-feedback">
+          </div>
+        </div>
+        <br />
+
+        <br />
+        <div class="mb-3">
+          <button class="btn btn-dark add-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
