@@ -6,6 +6,11 @@ module.exports.signupForm = (req, res) => {
 
 module.exports.signup = async (req, res) => {
   let { username, email, password } = req.body;
+  const isexistUser=await User.findOne({username})
+  if(isexistUser){
+    req.flash("error",`User already exist with ${username} name`);
+    res.redirect("/signup");
+  }
   const newUser = new User({ email, username });
   await User.register(newUser, password);
   req.flash("success","successfully register login with username & password ! ");

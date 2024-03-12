@@ -10,7 +10,7 @@
         <div class="mb-3">
           <label for="street" class="form-label">Street <sup>*</sup>:</label>
 
-          <input type="text" name="address[street]" value="<%= address.street%>" class="form-control" required />
+          <input type="text" id="street" name="address[street]" value="<%= address.street%>" class="form-control" required />
           <div class="invalid-feedback">
 
           </div>
@@ -19,7 +19,7 @@
         <div class="mb-3">
           <label for="city" class="form-label">City <sup>*</sup>:</label>
 
-          <input type="text" name="address[city]" value="<%= address.city%>" class="form-control" required />
+          <input type="text" id="city" name="address[city]" value="<%= address.city%>" class="form-control" required />
           <div class="invalid-feedback">
 
           </div>
@@ -28,7 +28,7 @@
         <div class="mb-3">
           <label for="zipCode" class="form-label">ZipCode <sup>*</sup>:</label>
 
-          <input type="text" name="address[zipCode]" value="<%= address.zipCode%>" class="form-control" required />
+          <input type="text"  id="zipCode" name="address[zipCode]" value="<%= address.zipCode%>" class="form-control" required />
           <div class="invalid-feedback">
 
           </div>
@@ -37,14 +37,14 @@
         <div class="mb-3">
           <label for="state" class="form-label">State <sup>*</sup>:</label>
 
-          <input type="text" name="address[state]" value="<%= address.state%>" class="form-control" required />
+          <input type="text" id="state" name="address[state]" value="<%= address.state%>" class="form-control" required />
           <div class="invalid-feedback">
           </div>
         </div>
 
         <div class="mb-3">
           <label for="country" class="form-label">Country<sup>*</sup>:</label>
-          <input type="text" name="address[country]" value="<%= address.country%>" class="form-control" required />
+          <input type="text" id="country" name="address[country]" value="<%= address.country%>" class="form-control" required />
           <div class="invalid-feedback">
           </div>
         </div>

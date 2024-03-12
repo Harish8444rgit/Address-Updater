@@ -7,7 +7,7 @@
       <div class="col-8 offset-2">
        <br>
 
-<form action="/login" method="post" novalidate class="needs-validation">
+<form action="/login" method="post" id="login" novalidate class="needs-validation">
   <div class="mb-3">
     <label for="username" claas="form-lable">Username:</label>
     <input
@@ -15,7 +15,6 @@
       id="username"
       name="username"
       class="form-control"
-      pattern="^[A-Za-z][A-Za-z0-9_]{4,20}$"
       required
     />
     <div class="invalid-feedback">
@@ -31,7 +30,6 @@
       id="Password"
       name="password"
       class="form-control"
-      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
       required />
       <div class="invalid-feedback">
         Password must be at least 8 characters long and contain one uppercase and one special character.

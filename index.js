@@ -7,8 +7,8 @@ const userRouter = require("./routes/user.js");
 const addressRouter=require("./routes/address.js")
 const methodOverride = require("method-override");
 const dotenv = require("dotenv");
-const ExpressError = require("./utils/ExpressError.js");
 dotenv.config();
+const ExpressError = require("./utils/ExpressError.js");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -23,7 +23,6 @@ main()
     console.log("connection successfull");
   })
   .catch((err) => console.log(err));
-
 async function main() {
   await mongoose.connect(db_url);
 }
@@ -38,7 +37,7 @@ store.on("error", (err) => {
   console.log("Error in Mongo session store", err);
 });
 
-// session managment
+// session options
 const sessionOptions = session({
   store: store,
   secret: process.env.secret,
