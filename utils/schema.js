@@ -17,6 +17,7 @@ module.exports.addressSchema = Joi.object({
     zipCode: Joi.string()
       .regex(/^\d{5,10}$/)
       .required(),
+      version: Joi.number().integer().min(0),
   }).required(),
 });
 

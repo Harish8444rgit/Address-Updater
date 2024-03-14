@@ -16,13 +16,14 @@ const addressSchema = new mongoose.Schema({
     required: true,
   },
   country: {
-    type: String,   
+    type: String,
     required: true,
   },
   zipCode: {
     type: String,
     required: true,
-  }
+  },
+  version: { type: Number, default: 0 },
 });
 
 const Address = mongoose.model("Address", addressSchema);

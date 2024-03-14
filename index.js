@@ -15,7 +15,7 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const db_url = process.env.ATALSDB_URL;
+const db_url = process.env.MONGODB_URL;
 
 // DB connection
 main()
@@ -69,6 +69,9 @@ passport.deserializeUser(User.deserializeUser());
 
 // getway routes
 app.get("/", (req, res) => {
+  if(req.user){
+    return res.redirect(`/users/${req.user._id}/addresses`)
+  }
   res.redirect("/signup");
 });
 
@@ -79,6 +82,7 @@ app.use((req, res, next) => {
   res.locals.currUser = req.user;
   next();
 });
+
 
 // routes 
 app.use("/users/:userid/addresses",addressRouter );

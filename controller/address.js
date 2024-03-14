@@ -53,21 +53,48 @@ module.exports.index =async (req, res) => {
 
   module.exports.updateAddess=async (req, res) => {
     const { userid, id } = req.params;
-     // handle potential duplicate entries
-    const { street, city, state, country, zipCode } = req.body.address;
-    let existingAddress = await Address.findOne({
-      $and: [{ street }, { city }, { state }, { zipCode }, { country }],
-    });
-
-    if (existingAddress) {
-      req.flash("error", "Address already exists");
-      return res.redirect(`/users/${req.params.userid}/addresses`);
+    const { street, city, state, country, zipCode, version } = req.body.address;
+    
+    // Find the existing address
+    let existingAddress = await Address.findById(id);
+    
+    // Check if the address exists
+    if (!existingAddress) {
+        req.flash("error", "The address you requested to edit does not exist!");
+        return res.redirect(`/users/${userid}/addresses`);
     }
-    //update
-    const updatedAddress = req.body.address;
-    await Address.findByIdAndUpdate(id, updatedAddress, { new: true });
+    
+    // Check if another address with the same details exists
+    let duplicateAddress = await Address.findOne({
+        $and: [
+            { street }, 
+            { city }, 
+            { state }, 
+            { zipCode }, 
+            { country }
+        ]
+    });
+    
+    if (duplicateAddress) {
+        req.flash("error", " Same Address details already exists.");
+        return res.redirect(`/users/${userid}/addresses`);
+    }
+      
+    // Check if versions match
+    if (existingAddress.version != version) {
+        req.flash("error", "The address has been modified by someone else. Please try again.");
+        return res.redirect(`/users/${userid}/addresses`);
+    }
+    
+    // Update the address
+    let updatedAddress = { street, city, state, country, zipCode };
+    updatedAddress.version = existingAddress.version + 1;
+    
+    await Address.findByIdAndUpdate(id, { $set: updatedAddress }, { new: true });
+    
     req.flash("success", "Address updated successfully");
     res.redirect(`/users/${userid}/addresses`);
+    
   };
 
   module.exports.destroyAddressForm=async (req, res) => {
