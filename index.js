@@ -15,7 +15,7 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const db_url = process.env.MONGODB_URL;
+const db_url = process.env.ATALSDB_URL;
 
 // DB connection
 main()
